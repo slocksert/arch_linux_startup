@@ -1,17 +1,13 @@
-#Update repositories
-sudo pacman -Sy
-
 #Install yay (install git if you dont have)
 cd /home/$USERNAME
 git clone https://aur.archlinux.org/yay
 cd yay
 makepkg -si
-cd ..
+
 
 #features
 sudo pacman -S --noconfirm \
-curl \
-wget \
+
 opera \
 opera-ffmpeg-codecs \
 xorg \
@@ -21,8 +17,8 @@ ntp \
 gnome-menus \
 chrome-gnome-shell \
 thunar \
-python3 \
-python-pip \
+curl \
+wget \
 poetry \
 pyenv \
 code \
@@ -40,9 +36,10 @@ ocs-url \
 spotify
 
 #config ntp
-sudo rm /etc/ntp.conf
-sudo mv ntp.conf /etc/ntp.conf
-sudo ntpd -qg
+sudo rm -rf /etc/ntp.conf
+cd /home/$USERNAME/arch_linux_startup
+sudo cp /home/$USERNAME/arch_linux_startup/ntp.conf /etc/ntp.conf
+sudo ntpd -u ntp:ntp
 sudo hwclock --systohc
 sudo timedatectl set-ntp 1
 sudo timedatectl set-local-rtc 1
@@ -52,6 +49,16 @@ sudo ln -sf /usr/share/zoneinfo/America/Maceio /etc/localtime
 sudo systemctl enable NetworkManager gdm ntpd
 
 #oh my bash
+cd /home/$USERNAME/
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 sudo rm .bashrc
-sudo mv .bashrc /home/$USERNAME/.bashrc
+sudo cp /home/$USERNAME/arch_linux_startup/.bashrc /home/$USERNAME/.bashrc
+
+#remove yay folder
+rm -rf /home/$USERNAME/yay
+
+#Update repositories
+sudo pacman -Sy
+
+#reboot
+reboot
