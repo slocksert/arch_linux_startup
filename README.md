@@ -2,11 +2,11 @@
 
 Script que instala os pacotes essenciais para o Arch
 
-|       Pacotes      |
-|--------------------|
-|opera               |
-|opera-ffmpeg-codecs |
-|xorg                |
+|       Pacotes      |    Extensões Gnome                                   |
+|--------------------|------------------------------------------------------|  
+|opera               |https://extensions.gnome.org/extension/3628/arcmenu/      |
+|opera-ffmpeg-codecs |https://extensions.gnome.org/extension/1160/dash-to-panel/|
+|xorg                |                                                      
 |noto-fonts          |
 |noto-fonts-emoji    |
 |ntp                 |
