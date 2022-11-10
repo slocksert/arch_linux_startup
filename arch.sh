@@ -1,4 +1,17 @@
-#Install yay (install git if you dont have)
+
+
+
+
+
+
+sudo pacman -S --noconfirm \
+
+git 
+
+#Giving permissions
+sudo chmod 777 /home/$USERNAME
+
+#Install yay
 cd /home/$USERNAME
 git clone https://aur.archlinux.org/yay
 cd yay
